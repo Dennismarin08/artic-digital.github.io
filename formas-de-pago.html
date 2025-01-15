@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formas de Pago</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Formas de Pago</h1>
+    </header>
+    <main>
+        <div class="game-info">
+            <img id="game-image" alt="Juego seleccionado" width="200">
+            <h3 id="game-title"></h3>
+            <p id="game-price"></p>
+        </div>
+        <h2>Elige tu método de pago</h2>
+        <div class="payment-options">
+            <button id="btn-nequi" class="btn btn-primary">Nequi</button>
+            <button id="btn-bancolombia" class="btn btn-secondary">Bancolombia</button>
+        </div>
+        <p id="selected-payment-method" class="mt-3">Método de pago seleccionado: <span id="payment-method">Ninguno</span></p>
+        <button id="notify-btn" class="btn btn-success mt-3" disabled>Notificar por WhatsApp</button>
+    </main>
+    <footer>
+        <p>Conéctate con nosotros:</p>
+        <a href="https://wa.me/3161588031" target="_blank">
+            <img src="img/WhatsApp neon logo.jpeg" alt="WhatsApp" width="40">
+        </a>
+    </footer>
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                juego: params.get('juego'),
+                precio: params.get('precio'),
+                imagenUrl: params.get('imagenUrl')
+            };
+        }
+
+        const { juego, precio, imagenUrl } = getQueryParams();
+
+        // Mostrar datos del juego seleccionado
+        document.getElementById('game-title').textContent = `Juego: ${juego}`;
+        document.getElementById('game-price').textContent = `Precio: ${precio}`;
+        document.getElementById('game-image').src = imagenUrl;
+
+        // Variables para manejar la selección de método de pago
+        let selectedMethod = "";
+
+        // Función para actualizar el método de pago
+        function updatePaymentMethod(method) {
+            selectedMethod = method;
+            document.getElementById('payment-method').textContent = method;
+            document.getElementById('notify-btn').disabled = false; // Habilitar el botón de notificación
+        }
+
+        // Agregar eventos a los botones
+        document.getElementById('btn-nequi').addEventListener('click', () => updatePaymentMethod("Nequi"));
+        document.getElementById('btn-bancolombia').addEventListener('click', () => updatePaymentMethod("Bancolombia"));
+
+        // Función para enviar notificación a WhatsApp
+        document.getElementById('notify-btn').addEventListener('click', () => {
+            const mensaje = `Hola, quiero comprar el juego ${juego} utilizando ${selectedMethod}. Precio: ${precio}`;
+            const numeroWhatsApp = '3167197604';
+            const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>

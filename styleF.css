@@ -1,0 +1,31 @@
+
+body {
+    background-image: url('images/FONDO.jpeg'); /* Fondo igual al index */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color); /* Color de texto */
+    font-family: 'Orbitron', sans-serif; /* Fuente más gamer */
+}
+button {
+    background-color: var(--highlight-color); /* Color del botón */
+    color: white; /* Texto del botón */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    transition: background-color 0.3s; /* Transición suave */
+}
+button:hover {
+    background-color: #e91e63; /* Color al pasar el mouse */
+}
+.carousel-inner img {
+    width: 100%;
+    height: 400px; /* Altura del carrusel */
+    object-fit: cover; /* Ajuste de imagen */
+}
+footer {
+    background-color: var(--secondary-color);
+    padding: 20px 0;
+    text-align: center;
+}

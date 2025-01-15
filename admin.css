@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #1a1a2e;
+  --secondary-color: #16213e;
+  --accent-color: #0f3460;
+  --text-color: #e94560;
+  --highlight-color: #ff2e63;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  background-image: 
+    linear-gradient(rgba(26, 26, 46, 0.8), rgba(26, 26, 46, 0.8)),
+    url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%239C92AC" fill-opacity="0.4"%3E%3Cpath d="M0 0h10v10H0zM10 10h10v10H10z"/%3E%3C/g%3E%3C/svg%3E');
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  color: var(--highlight-color);
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color), 0 0 30px var(--highlight-color);
+  animation: glitch 1s linear infinite;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.3);
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+th {
+  background-color: var(--accent-color);
+  color: var(--highlight-color);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+tr:hover {
+  background-color: rgba(15, 52, 96, 0.5);
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--highlight-color);
+  color: var(--primary-color);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 0.05em 0 0 var(--highlight-color), -0.05em -0.025em 0 var(--accent-color),
+      -0.025em 0.05em 0 var(--text-color);
+  }
+  14% {
+    text-shadow: 0.05em 0 0 var(--highlight-color), -0.05em -0.025em 0 var(--accent-color),
+      -0.025em 0.05em 0 var(--text-color);
+  }
+  15% {
+    text-shadow: -0.05em -0.025em 0 var(--highlight-color), 0.025em 0.025em 0 var(--accent-color),
+      -0.05em -0.05em 0 var(--text-color);
+  }
+  49% {
+    text-shadow: -0.05em -0.025em 0 var(--highlight-color), 0.025em 0.025em 0 var(--accent-color),
+      -0.05em -0.05em 0 var(--text-color);
+  }
+  50% {
+    text-shadow: 0.025em 0.05em 0 var(--highlight-color), 0.05em 0 0 var(--accent-color),
+      0 -0.05em 0 var(--text-color);
+  }
+  99% {
+    text-shadow: 0.025em 0.05em 0 var(--highlight-color), 0.05em 0 0 var(--accent-color),
+      0 -0.05em 0 var(--text-color);
+  }
+  100% {
+    text-shadow: -0.025em 0 0 var(--highlight-color), -0.025em -0.025em 0 var(--accent-color),
+      -0.025em -0.05em 0 var(--text-color);
+  }
+}
+
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 8px;
+  }
+}
